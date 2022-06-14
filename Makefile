@@ -238,31 +238,31 @@ docker-push-webhook: docker-build-webhook
 
 # Buildx the docker image
 docker-buildx-dataset-controller: generate gen-openapi fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.dataset -t ${DATASET_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.dataset -t ${DATASET_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-application-controller: generate fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.application -t ${APPLICATION_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.application -t ${APPLICATION_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-alluxioruntime-controller: generate gen-openapi fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.alluxioruntime -t ${ALLUXIORUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.alluxioruntime -t ${ALLUXIORUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-jindoruntime-controller: generate gen-openapi fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.jindoruntime -t ${JINDORUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.jindoruntime -t ${JINDORUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-goosefsruntime-controller: generate gen-openapi fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.goosefsruntime -t ${GOOSEFSRUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.goosefsruntime -t ${GOOSEFSRUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-juicefsruntime-controller: generate gen-openapi fmt vet juicefsruntime-controller-build
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.juicefsruntime -t ${JUICEFSRUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.juicefsruntime -t ${JUICEFSRUNTIME_CONTROLLER_IMG}:${GIT_VERSION}
 
 docker-buildx-csi: generate fmt vet
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.csi -t ${CSI_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.csi -t ${CSI_IMG}:${GIT_VERSION}
 
 docker-buildx-init-users:
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache charts/alluxio/docker/init-users -t ${INIT_USERS_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache charts/alluxio/docker/init-users -t ${INIT_USERS_IMG}:${GIT_VERSION}
 
 docker-buildx-webhook:
-        docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.webhook -t ${WEBHOOK_IMG}:${GIT_VERSION}
+	docker buildx build --push --platform linux/amd64,linux/arm64 --no-cache . -f docker/Dockerfile.webhook -t ${WEBHOOK_IMG}:${GIT_VERSION}
 
 docker-build-all: ${DOCKER_BUILD}
 docker-push-all: ${DOCKER_PUSH}
